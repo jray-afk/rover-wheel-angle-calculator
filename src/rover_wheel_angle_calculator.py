@@ -269,7 +269,7 @@ class RoverWheelAngleCalculator:
             right_back = utils.clamp(outer_back, -self.phi_max, self.phi_max)
         elif joystick_direction == 'right':
             # calculate relative wheels to turn
-            # if turning right, front tire angles are positive, right tire angles are negative
+            # if turning right, front tire angles are positive, back tire angles are negative
             inner_front = inner_angle
             outer_front = outer_angle
             inner_back = -1 * inner_angle
@@ -278,8 +278,8 @@ class RoverWheelAngleCalculator:
             # right wheels are inner wheels when turning right
             left_front = utils.clamp(outer_front, -self.phi_max, self.phi_max)
             right_front = utils.clamp(inner_front, -self.theta_max, self.theta_max)
-            left_back = utils.clamp(inner_back, -self.theta_max, self.theta_max)
-            right_back = utils.clamp(outer_back, -self.phi_max, self.phi_max)
+            left_back = utils.clamp(outer_back, -self.phi_max, self.phi_max)
+            right_back = utils.clamp(inner_back, -self.theta_max, self.theta_max)
         return left_front, right_front, left_back, right_back
 
 
