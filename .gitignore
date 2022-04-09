@@ -51,3 +51,4 @@ venv/
 /tests/wheel_angles.csv
 /.idea/rover_turn_trigonometry.iml
 /.idea/misc.xml
+/.idea/modules.xml
