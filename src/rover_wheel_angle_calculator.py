@@ -240,12 +240,12 @@ class RoverWheelAngleCalculator:
             joystick_val = 10 ** joystick_val
         joystick_val = utils.clamp(joystick_val, self.joystick_range[0], self.joystick_range[1])
         joystick_direction = self.get_joystick_direction(joystick_val)
+        left_front = 0.0
+        right_front = 0.0
+        left_back = 0.0
+        right_back = 0.0
         # if not turning, all tire angles are 0
         if joystick_val == 0.0 or joystick_direction == 'center':
-            left_front = 0.0
-            right_front = 0.0
-            left_back = 0.0
-            right_back = 0.0
             return left_front, right_front, left_back, right_back
         # print(joystick_val)
 
