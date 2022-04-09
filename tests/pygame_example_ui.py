@@ -23,11 +23,23 @@ background.fill(WHITE)
 ROVER_Y = 10  # from center y length of rover to front wheels; should be the same distance as center to back
 ROVER_X = 7  # full x width of rover
 wheel_angle_calculator = RoverWheelAngleCalculator(
-    distance_between_front_wheels=9,  # 'a' in diagram. For rover, this is half of length of rover
-    distance_between_front_pivots=ROVER_X,  # 'c' in diagram
-    distance_between_axels=ROVER_Y,  # 'b' in diagram
-    joystick_range=[-100, 100],  # [min val, max val]
-    input_scale='linear'  # 'log' or 'linear'; 'log' for smoothing out angle of wheel turn
+
+    # 'a' in diagram. If your wheels pivot from the center, your distance between front wheels is the same as
+    # ROVER_X, and therefore your wheel gap distance term is 0.
+    distance_between_front_wheels=ROVER_X,
+
+    # 'c' in diagram
+    distance_between_front_pivots=ROVER_X,
+
+    # 'b' in diagram. For rover, this is half of length of rover
+    distance_between_axels=ROVER_Y,
+
+    # [min val, max val]
+    joystick_range=[-100, 100],
+
+    # 'linear' for now; 'log' will be enabled in future
+    input_scale='linear'
+
 )
 ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR = 10
 WHEEL_PIXEL_X_TERM = (ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR * (ROVER_X/2))
