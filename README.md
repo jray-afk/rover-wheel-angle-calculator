@@ -28,16 +28,20 @@ ROVER_X = 7  # full x width of rover
 
 # define the wheel angle calculator object
 wheel_angle_calculator = RoverWheelAngleCalculator(
-    # define rover dimensions (dependency of turn radius and wheel angles)
-    distance_between_front_wheels=9,  # 'a' in diagram. For rover, this is half of length of rover
-    distance_between_front_pivots=ROVER_X,  # 'c' in diagram
-    distance_between_axels=ROVER_Y,  # 'b' in diagram
-    
-    # by default, joystick range for all the way left is -100%, all the way right is 100%
-    # You can either map joystick vals yourself from -100% to 100% or you can change this range
-    # to reflect the range of values your joystick will have
-    joystick_range=[-100, 100],  # [max val left, max val right]
-    
+    # 'a' in diagram. If your wheels pivot from the center, your distance between front wheels is the same as
+    # ROVER_X, and therefore your wheel gap distance term is 0.
+    distance_between_front_wheels=ROVER_X,
+
+    # 'c' in diagram
+    distance_between_front_pivots=ROVER_X,
+
+    # 'b' in diagram. For rover, this is half of length of rover
+    distance_between_axels=ROVER_Y,
+
+    # [min val, max val]
+    joystick_range=[-100, 100],
+
+    # 'linear' for now; 'log' will be enabled in future
     input_scale='linear'
 )
 
