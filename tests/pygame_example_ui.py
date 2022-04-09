@@ -12,16 +12,16 @@ FPS = 30
 pygame.init()
 
 pygame.display.set_caption('Rover Wheel Calculator Test')
-window_surface = pygame.display.set_mode((800, 600))
+window_surface = pygame.display.set_mode((1200, 800))
 
-SCREEN_DIMENSIONS = (800, 600)
+SCREEN_DIMENSIONS = (1200, 800)
 SCREEN_CENTER = (int(SCREEN_DIMENSIONS[0]/2), int(SCREEN_DIMENSIONS[1]/2))
 background = pygame.Surface(SCREEN_DIMENSIONS)
 background.fill(WHITE)
 
 # see equations.png for 'diagram' references in code comments
-ROVER_Y = 10  # from center y length of rover to front wheels; should be the same distance as center to back
-ROVER_X = 7  # full x width of rover
+ROVER_Y = 131  # from center y length of rover to front wheels; should be the same distance as center to back
+ROVER_X = 243.5  # full x width of rover
 wheel_angle_calculator = RoverWheelAngleCalculator(
 
     # 'a' in diagram. If your wheels pivot from the center, your distance between front wheels is the same as
@@ -41,7 +41,7 @@ wheel_angle_calculator = RoverWheelAngleCalculator(
     input_scale='linear'
 
 )
-ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR = 10
+ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR = 1
 WHEEL_PIXEL_X_TERM = (ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR * (ROVER_X/2))
 WHEEL_PIXEL_Y_TERM = (ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR * ROVER_Y)
 
@@ -101,6 +101,7 @@ def rectRotated(surface, color, pos, fill, border_radius, angle):
     s = pygame.transform.rotate(s, angle)
     surface.blit(s, (pos[0], pos[1]))
     return
+
 
 def slider_pixel_x_to_percent(pixel_x_location):
     # handle div by 0
