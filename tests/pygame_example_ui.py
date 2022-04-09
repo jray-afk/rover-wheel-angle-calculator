@@ -12,9 +12,9 @@ FPS = 30
 pygame.init()
 
 pygame.display.set_caption('Rover Wheel Calculator Test')
-window_surface = pygame.display.set_mode((1200, 800))
+window_surface = pygame.display.set_mode((800, 600))
 
-SCREEN_DIMENSIONS = (1200, 800)
+SCREEN_DIMENSIONS = (800, 600)
 SCREEN_CENTER = (int(SCREEN_DIMENSIONS[0]/2), int(SCREEN_DIMENSIONS[1]/2))
 background = pygame.Surface(SCREEN_DIMENSIONS)
 background.fill(WHITE)
@@ -35,7 +35,7 @@ wheel_angle_calculator = RoverWheelAngleCalculator(
     distance_between_axels=ROVER_Y,
 
     # [min val, max val]
-    joystick_range=[-100, 100],
+    joystick_range=[-50, 50],
 
     # 'linear' for now; 'log' will be enabled in future
     input_scale='linear'
@@ -46,8 +46,8 @@ WHEEL_PIXEL_X_TERM = (ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR * (ROVER_X/2))
 WHEEL_PIXEL_Y_TERM = (ROVER_SIZE_TO_PIXEL_CONVERSION_SCALAR * ROVER_Y)
 
 # completely arbitrary valsfor this UI example
-WHEEL_PIXEL_WIDTH = 10
-WHEEL_PIXEL_HEIGHT = 20
+WHEEL_PIXEL_WIDTH = 20
+WHEEL_PIXEL_HEIGHT = 35
 # pygame rect position definition: Rect(left, top, width, height)
 # going DOWN the screen is positive, don't get confused with screen y axis!
 wheel_positions = [
